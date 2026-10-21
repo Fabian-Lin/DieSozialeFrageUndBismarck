@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const http = require('node:http');
 const path = require('node:path');
 
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY || '';
 
 const ROOT = __dirname;
 
