@@ -1057,17 +1057,21 @@ footer {
   align-items: start;
 }
 
-/* Make the cartoon prominent and centered above the text */
-.motive-figure {
-  grid-column: 1 / -1;
-  width: min(980px, 92%);
+.motive-figure,
+.motive-text {
+  width: 100%;
   margin: 0 auto;
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Make the cartoon prominent and centered above the text */
+.motive-figure {
+  grid-column: 1 / -1;
   padding: 0.5rem;
   text-align: center;
-  box-shadow: 0 12px 30px rgba(31,42,55,0.06);
   overflow: hidden;
 }
 .motive-figure img {
@@ -1111,13 +1115,7 @@ footer {
 }
 
 .motive-text {
-  width: min(980px, 92%);
-  margin: 0 auto;
-  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(242, 235, 223, 0.52));
-  border: 1px solid var(--line);
   padding: 1.1rem 1.25rem;
-  border-radius: 10px;
-  box-shadow: 0 10px 22px rgba(31,42,55,0.04);
 }
 
 .motive-text p {
@@ -1200,4 +1198,3 @@ main > p,
     color: #ffffff; /* Weißer Text für besseren Kontrast */
     padding: 0.5rem; /* Optional: Innenabstand für bessere Sichtbarkeit */
 }
-
