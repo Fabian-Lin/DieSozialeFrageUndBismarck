@@ -305,10 +305,11 @@ a:focus-visible {
 
 .timeline-era-artwork {
   width: min(100%, 24.75rem);
-  margin-left: auto;
+  margin: -2.2rem 0 0 auto;
 }
 
 .timeline-era-artwork h4 {
+  margin-top: 0;
   text-align: center;
 }
 
@@ -980,6 +981,7 @@ footer {
 
   .timeline-era-artwork {
     width: min(100%, 14.85rem);
+    margin-top: 0;
   }
 
   .motive-grid {
