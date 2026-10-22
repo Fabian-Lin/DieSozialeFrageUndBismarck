@@ -291,6 +291,25 @@ a:focus-visible {
   margin-top: 1rem;
 }
 
+.timeline-quote {
+  margin: 1rem 0;
+}
+
+.timeline-quote summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.timeline-quote .zitat {
+  margin-bottom: 0.5rem;
+}
+
+.timeline-quote > p {
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .tabs {
   display: flex;
   flex-wrap: wrap;
