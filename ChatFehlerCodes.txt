@@ -1,1 +1,11 @@
 701: Der Chat-Endpunkt wurde nicht gefunden. Prüfe, ob node server.js läuft und du http://localhost:3000 geöffnet hast.
+
+## Fehlermeldungen
+
+- **Chat ist noch nicht eingerichtet:** Prüfe, ob `.env` im Projektordner liegt und `OPENAI_API_KEY=...` enthält. Starte `node server.js` anschließend neu.
+- **OpenAI hat den API-Schlüssel abgelehnt:** Prüfe, ob der Schlüssel korrekt und aktiv ist.
+- **OpenAI verweigert den Zugriff:** Prüfe die API-Berechtigungen des OpenAI-Projekts.
+- **Nutzungslimit erreicht:** Prüfe API-Abrechnung, Guthaben und Limits in der OpenAI API-Plattform.
+- **Prompt-ID oder Version:** Prüfe die vorhandenen Prompt-Einstellungen in OpenAI oder setze `OPENAI_PROMPT_ID` und `OPENAI_PROMPT_VERSION` in `.env`.
+
+Die vollständige Fehlermeldung mit technischen Details erscheint in dem PowerShell-Fenster, in dem der Server läuft.
