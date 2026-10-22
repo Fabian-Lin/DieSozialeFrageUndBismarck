@@ -244,6 +244,7 @@
       <p>Wie gut kennst du Bismarcks Sozialpolitik? Beantworte die Fragen und prüfe deine Antworten.</p>
 
       <div class="quiz-container">
+        <p class="quiz-progress" id="quiz-progress" aria-live="polite">Frage 1 von 5</p>
         <div class="quiz-question" data-correct="b">
           <h3>Frage 1: Warum führte Bismarck die Sozialversicherungen ein?</h3>
           <div class="quiz-options">
@@ -320,9 +321,11 @@
         </div>
 
         <div class="quiz-controls">
-          <button id="quiz-submit" class="quiz-button">Ergebnis anzeigen</button>
+          <button id="quiz-previous" class="quiz-button quiz-navigation" type="button" disabled>Zurück</button>
+          <button id="quiz-next" class="quiz-button quiz-navigation" type="button">Überprüfen</button>
           <button id="quiz-reset" class="quiz-button quiz-reset hidden">Erneut versuchen</button>
         </div>
+        <p id="quiz-feedback" class="quiz-feedback" role="status" aria-live="polite" hidden></p>
         <div id="quiz-result" class="quiz-result hidden"></div>
       </div>
     </section>

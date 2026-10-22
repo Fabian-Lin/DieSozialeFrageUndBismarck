@@ -152,81 +152,172 @@ if (timelineExplanation && timelineItems.length) {
   });
 }
 
-const quizSubmitButton = document.getElementById("quiz-submit");
-if (quizSubmitButton) {
-  quizSubmitButton.addEventListener("click", function () {
-    const resultDiv = document.getElementById("quiz-result");
-    const questions = document.querySelectorAll('.quiz-question');
-    let score = 0;
+const quizQuestions = Array.from(document.querySelectorAll('.quiz-question'));
+const quizProgress = document.getElementById('quiz-progress');
+const quizPreviousButton = document.getElementById('quiz-previous');
+const quizNextButton = document.getElementById('quiz-next');
+const quizResetButton = document.getElementById('quiz-reset');
+const quizFeedback = document.getElementById('quiz-feedback');
+const quizResult = document.getElementById('quiz-result');
+let currentQuizQuestion = 0;
+let quizCompleted = false;
+const checkedQuizQuestions = quizQuestions.map(() => false);
 
-    questions.forEach(q => {
-      q.querySelectorAll('label').forEach(l => {
-        l.classList.remove('correct-answer', 'wrong-selection');
-      });
-    });
+function showQuizQuestion(index) {
+  currentQuizQuestion = index;
+  quizQuestions.forEach((question, questionIndex) => {
+    question.hidden = questionIndex !== currentQuizQuestion;
+  });
 
-    questions.forEach(q => {
-      const correct = q.dataset.correct;
-      const firstInput = q.querySelector('input[type="radio"]');
-      if (!firstInput) return;
-      const name = firstInput.name;
-      const selected = q.querySelector(`input[name="${name}"]:checked`);
-      const correctInput = q.querySelector(`input[type="radio"][value="${correct}"]`);
-
-      if (selected) {
-        if (selected.value === correct) {
-          score++;
-          const lbl = selected.closest('label');
-          if (lbl) lbl.classList.add('correct-answer');
-        } else {
-          const lblSel = selected.closest('label');
-          if (lblSel) lblSel.classList.add('wrong-selection');
-          if (correctInput) {
-            const lblCorr = correctInput.closest('label');
-            if (lblCorr) lblCorr.classList.add('correct-answer');
-          }
-        }
-      } else if (correctInput) {
-        const lblCorr = correctInput.closest('label');
-        if (lblCorr) lblCorr.classList.add('correct-answer');
-      }
-    });
-
-    const total = questions.length;
-    if (resultDiv) {
-      resultDiv.classList.remove('hidden');
-      if (score === total) {
-        resultDiv.innerHTML = `<p>✅ Perfekt! Du hast alle Fragen richtig beantwortet.</p>`;
-      } else {
-        resultDiv.innerHTML = `<p>Du hast ${score}/${total} Fragen richtig beantwortet.</p><p>Lies dir die Fragen noch einmal sorgfältig durch.</p>`;
-      }
+  if (quizProgress) {
+    quizProgress.textContent = `Frage ${currentQuizQuestion + 1} von ${quizQuestions.length}`;
+  }
+  if (quizPreviousButton) {
+    quizPreviousButton.disabled = currentQuizQuestion === 0 || quizCompleted;
+  }
+  if (quizNextButton) {
+    quizNextButton.hidden = quizCompleted;
+    quizNextButton.textContent = checkedQuizQuestions[currentQuizQuestion]
+      ? currentQuizQuestion === quizQuestions.length - 1 ? 'Auswertung anzeigen' : 'Weiter'
+      : 'Überprüfen';
+  }
+  if (quizFeedback) {
+    quizFeedback.hidden = !checkedQuizQuestions[currentQuizQuestion];
+    if (checkedQuizQuestions[currentQuizQuestion]) {
+      const question = quizQuestions[currentQuizQuestion];
+      const selected = question.querySelector('input[type="radio"]:checked');
+      quizFeedback.textContent = selected?.value === question.dataset.correct
+        ? 'Richtig!'
+        : `Leider falsch. Richtig ist: ${question.querySelector(`input[value="${question.dataset.correct}"]`)?.closest('label')?.textContent.trim()}`;
+      quizFeedback.classList.toggle('is-correct', selected?.value === question.dataset.correct);
+      quizFeedback.classList.toggle('is-incorrect', selected?.value !== question.dataset.correct);
     }
+  }
+}
 
-    const resetBtn = document.getElementById('quiz-reset');
-    if (resetBtn) resetBtn.classList.remove('hidden');
+if (quizQuestions.length) {
+  showQuizQuestion(0);
+}
+
+if (quizPreviousButton) {
+  quizPreviousButton.addEventListener('click', function () {
+    if (currentQuizQuestion > 0) {
+      showQuizQuestion(currentQuizQuestion - 1);
+    }
   });
 }
 
-const quizResetButton = document.getElementById('quiz-reset');
-if (quizResetButton) {
-  quizResetButton.addEventListener('click', function () {
-    const questions = document.querySelectorAll('.quiz-question');
-    questions.forEach(q => {
-      q.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
-      q.querySelectorAll('label').forEach(l => {
-        l.classList.remove('correct-answer', 'wrong-selection');
-      });
-    });
+if (quizNextButton) {
+  quizNextButton.addEventListener('click', function () {
+    if (!checkedQuizQuestions[currentQuizQuestion]) {
+      const question = quizQuestions[currentQuizQuestion];
+      const selected = question.querySelector('input[type="radio"]:checked');
+      if (!selected) {
+        if (quizFeedback) {
+          quizFeedback.textContent = 'Bitte wähle zuerst eine Antwort aus.';
+          quizFeedback.classList.remove('is-correct', 'is-incorrect');
+          quizFeedback.hidden = false;
+        }
+        return;
+      }
 
-    const resultDiv = document.getElementById('quiz-result');
-    if (resultDiv) {
-      resultDiv.classList.add('hidden');
-      resultDiv.innerHTML = '';
+      const correct = selected.value === question.dataset.correct;
+      selected.closest('label')?.classList.add(correct ? 'correct-answer' : 'wrong-selection');
+      if (!correct) {
+        question.querySelector(`input[value="${question.dataset.correct}"]`)
+          ?.closest('label')
+          ?.classList.add('correct-answer');
+      }
+      checkedQuizQuestions[currentQuizQuestion] = true;
+      if (quizFeedback) {
+        quizFeedback.textContent = correct
+          ? 'Richtig!'
+          : `Leider falsch. Richtig ist: ${question.querySelector(`input[value="${question.dataset.correct}"]`)?.closest('label')?.textContent.trim()}`;
+        quizFeedback.classList.toggle('is-correct', correct);
+        quizFeedback.classList.toggle('is-incorrect', !correct);
+        quizFeedback.hidden = false;
+      }
+      showQuizQuestion(currentQuizQuestion);
+      return;
     }
 
+    if (currentQuizQuestion === quizQuestions.length - 1) {
+      const score = quizQuestions.reduce((total, question) => {
+        const selected = question.querySelector('input[type="radio"]:checked');
+        return total + Number(selected?.value === question.dataset.correct);
+      }, 0);
+
+      if (quizResult) {
+        quizResult.classList.remove('hidden');
+        quizResult.classList.toggle('is-correct', score === quizQuestions.length);
+        quizResult.classList.toggle('is-incorrect', score !== quizQuestions.length);
+        quizResult.textContent = score === quizQuestions.length
+          ? 'Perfekt! Du hast alle Fragen richtig beantwortet.'
+          : `Du hast ${score}/${quizQuestions.length} Fragen richtig beantwortet.`;
+      }
+
+      quizCompleted = true;
+      if (quizResetButton) {
+        quizResetButton.classList.remove('hidden');
+      }
+      showQuizQuestion(currentQuizQuestion);
+    } else {
+      showQuizQuestion(currentQuizQuestion + 1);
+    }
+  });
+}
+
+quizQuestions.forEach((question, questionIndex) => {
+  question.addEventListener('change', function (event) {
+    if (!event.target.matches('input[type="radio"]')) return;
+
+    question.querySelectorAll('label').forEach(label => {
+      label.classList.remove('correct-answer', 'wrong-selection');
+    });
+    checkedQuizQuestions[questionIndex] = false;
+    quizCompleted = false;
+    if (quizResult) {
+      quizResult.classList.add('hidden');
+      quizResult.classList.remove('is-correct', 'is-incorrect');
+      quizResult.textContent = '';
+    }
+    quizResetButton?.classList.add('hidden');
+    if (quizFeedback) {
+      quizFeedback.hidden = true;
+      quizFeedback.classList.remove('is-correct', 'is-incorrect');
+    }
+    if (questionIndex === currentQuizQuestion) {
+      showQuizQuestion(currentQuizQuestion);
+    }
+  });
+});
+
+if (quizResetButton) {
+  quizResetButton.addEventListener('click', function () {
+    quizQuestions.forEach(question => {
+      question.querySelectorAll('input[type="radio"]').forEach(input => {
+        input.checked = false;
+      });
+      question.querySelectorAll('label').forEach(label => {
+        label.classList.remove('correct-answer', 'wrong-selection');
+      });
+    });
+    checkedQuizQuestions.fill(false);
+
+    if (quizResult) {
+      quizResult.classList.add('hidden');
+      quizResult.classList.remove('is-correct', 'is-incorrect');
+      quizResult.textContent = '';
+    }
+    if (quizFeedback) {
+      quizFeedback.hidden = true;
+      quizFeedback.classList.remove('is-correct', 'is-incorrect');
+    }
+
+    quizCompleted = false;
     quizResetButton.classList.add('hidden');
-    const firstInput = document.querySelector('.quiz-question input[type="radio"]');
-    if (firstInput) firstInput.focus();
+    showQuizQuestion(0);
+    quizQuestions[0]?.querySelector('input[type="radio"]')?.focus();
   });
 }
 
