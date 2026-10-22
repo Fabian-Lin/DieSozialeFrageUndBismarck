@@ -40,7 +40,7 @@ const timelineContent = {
     title: '1878: Sozialistengesetz',
     html: `
       <p>Das Sozialistengesetz von 1878 war ein Ausnahmegesetz, mit dem Bismarck die Sozialdemokratie bekämpfen wollte. Nach zwei gescheiterten Attentaten auf Kaiser Wilhelm I. im Jahr 1878 machte er die Sozialistische Arbeiterpartei dafür verantwortlich, obwohl es keine Beweise gab. Im Oktober 1878 beschloss der Reichstag das „Gesetz gegen die gemeingefährlichen Bestrebungen der Sozialdemokratie“. Es verbot sozialdemokratische Vereine, Versammlungen, Druckschriften und Gewerkschaften, und führende Mitglieder konnten aus ihren Wohnorten ausgewiesen werden. Nur die Teilnahme an Reichstagswahlen blieb erlaubt.</p>
-      <p>Sein Ziel erreichte das Gesetz nicht: Die Partei arbeitete im Untergrund weiter, und die Verfolgung stärkte ihren Zusammenhalt, sodass sie bei Wahlen sogar dreimal so viele Stimmen gewann. Bismarck setzte deshalb zusätzlich auf „Zuckerbrot und Peitsche“. Neben der Unterdrückung (Peitsche) sollte die Sozialversicherung (Zuckerbrot) die Arbeiter an den Staat binden und vom Sozialismus abbringen. Das Sozialistengesetz lief 1890 aus.</p>
+      <p>Sein Ziel erreichte das Gesetz nicht: Die Partei arbeitete im Untergrund weiter, und die Verfolgung stärkte ihren Zusammenhalt, sodass sie bei Wahlen sogar dreimal so viele Stimmen gewann. Bismarck setzte deshalb zusätzlich auf „Zuckerbrot und Peitsche“. Neben der Unterdrückung (Peitsche) sollten die Sozialversicherungen (Zuckerbrot) die Arbeiter an den Staat binden und vom Sozialismus abbringen. Das Sozialistengesetz lief 1890 aus.</p>
       <h4>Das Sozialistengesetz in Originalfassung:</h4>
       <audio class="timeline-audio" controls preload="none" aria-label="Audiobeitrag zum Sozialistengesetz">
         <source src="audios/Sozialistengesetz.mp3" type="audio/mpeg">
@@ -93,6 +93,8 @@ const timelineContent = {
       </div>
 
       <p>Das Sozialistengesetz lief aus, und Bismarck verlor im politischen System schnell an Einfluss. Die Sozialpolitik blieb aber bestehen und war nun ein fester Bestandteil des modernen Staates.</p>
+      <p>Karikatur, wo Bismark das Schiff verlässt</p>
+      <p>Weiterer historischer Kontext, wer übernahm die Macht, was ist mit den Sozialismus, ging die Sozialpolitik weiter oder wurde sie vernachlässigt?</p>
     `
   }
 };
@@ -176,7 +178,7 @@ if (quizSubmitButton) {
     if (resultDiv) {
       resultDiv.classList.remove('hidden');
       if (score === total) {
-        resultDiv.innerHTML = `<p>✅ Perfekt! Du hast ${score}/${total} Fragen richtig beantwortet.</p>`;
+        resultDiv.innerHTML = `<p>✅ Perfekt! Du hast alle Fragen richtig beantwortet.</p>`;
       } else {
         resultDiv.innerHTML = `<p>Du hast ${score}/${total} Fragen richtig beantwortet.</p><p>Lies dir die Fragen noch einmal sorgfältig durch.</p>`;
       }
@@ -261,7 +263,7 @@ if (quizResetButton) {
 
     try {
       if (window.location.protocol === 'file:') {
-        throw new Error('Du öffnest die Website als lokale Datei. Starte node server.js und öffne http://localhost:3000.');
+        throw new Error('Starte node server.js und öffne http://localhost:3000.');
       }
 
       const response = await fetch('/api/chat', {
@@ -275,7 +277,7 @@ if (quizResetButton) {
       try {
         result = JSON.parse(await response.text());
       } catch {
-        throw new Error('Der Chat-Endpunkt wurde nicht gefunden. Prüfe, ob node server.js läuft und du http://localhost:3000 geöffnet hast.');
+        throw new Error('Fehler 701: Der Chatdienst ist gerade nicht erreichbar. Bitte versuche es später erneut.');
       }
 
       if (!response.ok) {

@@ -1,0 +1,1 @@
+701: Der Chat-Endpunkt wurde nicht gefunden. Prüfe, ob node server.js läuft und du http://localhost:3000 geöffnet hast.
