@@ -291,6 +291,42 @@ a:focus-visible {
   margin-top: 1rem;
 }
 
+.timeline-era-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 24.75rem);
+  align-items: start;
+  gap: 0.75rem;
+}
+
+.timeline-era-text p:last-child,
+.timeline-era-artwork h4 {
+  margin-bottom: 0.5rem;
+}
+
+.timeline-era-artwork {
+  width: min(100%, 24.75rem);
+  margin-left: auto;
+}
+
+.timeline-era-artwork h4 {
+  text-align: center;
+}
+
+.timeline-era-figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.timeline-era-figure .timeline-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.timeline-era-figure .quellen {
+  margin-top: 0.5rem;
+}
+
 .timeline-quote {
   margin: 1rem 0;
 }
@@ -905,6 +941,18 @@ footer {
 }
 
 @media (max-width: 820px) {
+  .timeline-era-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-era-figure .timeline-image {
+    width: 100%;
+  }
+
+  .timeline-era-artwork {
+    width: min(100%, 14.85rem);
+  }
+
   .motive-grid {
     grid-template-columns: 1fr;
   }

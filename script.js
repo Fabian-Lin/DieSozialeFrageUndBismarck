@@ -95,18 +95,25 @@ const timelineContent = {
   'jahr-1890': {
     title: '1890: Ende einer Ära',
     html: `
-      <div class="unfertig">
-        Dieser Abschnitt ist noch nicht fertig.  Der Text muss noch geschrieben werden.
+      <div class="timeline-era-layout">
+        <div class="timeline-era-text">
+          <div class="unfertig">
+            Dieser Abschnitt ist noch nicht fertig.  Der Text muss noch geschrieben werden.
+          </div>
+          <p>Das Sozialistengesetz lief aus, und Bismarck verlor im politischen System schnell an Einfluss. Die Sozialpolitik blieb aber bestehen und war nun ein fester Bestandteil des modernen Staates.</p>
+          <p>Weiterer historischer Kontext, wer übernahm die Macht, was ist mit den Sozialismus, ging die Sozialpolitik weiter oder wurde sie vernachlässigt?</p>
+        </div>
+        <figure class="timeline-era-figure">
+          <div class="timeline-era-artwork">
+            <h4>Karikatur: Der Lotse geht von Bord (1890)</h4>
+            <img class="timeline-image" src="bilder/Bismarcks_Ruecktritt.jpg" alt="Karikatur: Der Lotse geht von Bord">
+          </div>
+          <figcaption class="quellen">
+            <a href="https://commons.wikimedia.org/wiki/File:1890_Bismarcks_Ruecktritt.jpg">John Tenniel 1890, Public domain, via Wikimedia Commons</a>
+          </figcaption>
+        </figure>
       </div>
-
-      <p>Das Sozialistengesetz lief aus, und Bismarck verlor im politischen System schnell an Einfluss. Die Sozialpolitik blieb aber bestehen und war nun ein fester Bestandteil des modernen Staates.</p>
-      <p>Weiterer historischer Kontext, wer übernahm die Macht, was ist mit den Sozialismus, ging die Sozialpolitik weiter oder wurde sie vernachlässigt?</p>
-      <h4>Karikatur: Der Lotse geht von Bord von John Tenniel (1890) (Im Orginal: Dropping the Pilot)</h4>
-      <img class="timeline-image" src="bilder/Bismarcks_Ruecktritt.jpg" alt="Karikatur: Der Lotse geht von Bord">
-      <figcaption class="quellen">
-        <a href="https://commons.wikimedia.org/wiki/File:1890_Bismarcks_Ruecktritt.jpg">John Tenniel, Public domain, via Wikimedia Commons</a>
-      </figcaption>
-        `
+    `
   }
 };
 
