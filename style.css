@@ -862,6 +862,29 @@ footer {
   margin: 0 auto 1rem;
 }
 
+.video-details {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.video-details summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.video-details video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  max-height: 75vh;
+  height: auto;
+  margin-top: 1rem;
+  background: #000;
+}
+
 @media (max-width: 820px) {
   .motive-grid {
     grid-template-columns: 1fr;
