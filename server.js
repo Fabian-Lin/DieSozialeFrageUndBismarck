@@ -2,8 +2,7 @@ const fs = require('node:fs');
 const http = require('node:http');
 const path = require('node:path');
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY || '';
-
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const ROOT = __dirname;
 
 const PORT = Number(process.env.PORT) || 3000;
@@ -107,11 +106,6 @@ async function handleChat(req, res) {
     return sendJson(res, 429, { error: 'Zu viele Fragen in kurzer Zeit. Bitte warte eine Minute.' });
   }
 
-  if (!process.env.OPENAI_API_KEY) {
-    console.error('OPENAI_API_KEY is not configured.');
-    return sendJson(res, 503, { error: 'Lege OPENAI_API_KEY in der Datei .env an und starte den Server neu.' });
-  }
-
   let body;
   try {
     body = await readJsonBody(req);
@@ -126,8 +120,12 @@ async function handleChat(req, res) {
     return sendJson(res, 400, { error: 'Die Anfrage konnte nicht gelesen werden.' });
   }
 
-  if (!isValidMessages(body.messages)) {
+  if (!isValidMessages(body?.messages)) {
     return sendJson(res, 400, { error: 'Bitte stelle eine gültige Frage (maximal 1000 Zeichen).' });
+  }
+
+  if (!OPENAI_API_KEY) {
+    return sendJson(res, 503, { error: 'Der Chat ist nicht konfiguriert. Setze die Umgebungsvariable OPENAI_API_KEY.' });
   }
 
   let openAIResponse;
@@ -141,7 +139,7 @@ async function handleChat(req, res) {
       body: JSON.stringify({
         prompt: {
           id: process.env.OPENAI_PROMPT_ID || 'pmpt_6ad8cd2a9ec08190b9394d27aa9a1e0606439f58c2ab47b7',
-          version: process.env.OPENAI_PROMPT_VERSION || '1'
+          version: process.env.OPENAI_PROMPT_VERSION || '2'
         },
         input: body.messages.map(message => ({
           role: message.role,
@@ -170,7 +168,7 @@ async function handleChat(req, res) {
 
     const messages = {
       400: 'OpenAI hat die Anfrage abgelehnt. Prüfe Prompt-ID und Version in der OpenAI-Plattform.',
-      401: 'OpenAI hat den API-Schlüssel abgelehnt. Prüfe OPENAI_API_KEY in der Datei .env.',
+      401: 'OpenAI hat den API-Schlüssel abgelehnt. Prüfe die Umgebungsvariable OPENAI_API_KEY.',
       403: 'OpenAI verweigert den Zugriff. Prüfe Projektberechtigungen und API-Zugriff.',
       429: 'Das OpenAI-Nutzungslimit ist erreicht oder es ist kein API-Guthaben verfügbar. Prüfe Abrechnung und Limits.'
     };
