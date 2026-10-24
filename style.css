@@ -449,7 +449,8 @@ dd {
   display: none !important;
 }
 
-#comparison-table {
+#comparison-table,
+.motive-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
@@ -460,38 +461,48 @@ dd {
 }
 
 #comparison-table th,
-#comparison-table td {
+#comparison-table td,
+.motive-table th,
+.motive-table td {
   padding: 0.85rem 0.9rem;
   border-bottom: 1px solid var(--line);
   text-align: left;
   vertical-align: top;
 }
 
-#comparison-table thead th {
+#comparison-table thead th,
+.motive-table thead th {
   background: var(--primary);
   color: #fff;
   font-weight: 700;
 }
 
-#comparison-table tbody tr:nth-child(even) td {
+#comparison-table tbody tr:nth-child(even) td,
+.motive-table tbody tr:nth-child(even) td {
   background: var(--bg-soft);
 }
 
 @media (max-width: 600px) {
   #comparison-table,
+  .motive-table,
   #comparison-table tbody,
+  .motive-table tbody,
   #comparison-table tr,
-  #comparison-table td {
+  .motive-table tr,
+  #comparison-table td,
+  .motive-table td {
     display: block;
     width: 100%;
   }
 
-  #comparison-table {
+  #comparison-table,
+  .motive-table {
     border: 0;
     background: transparent;
   }
 
-  #comparison-table thead {
+  #comparison-table thead,
+  .motive-table thead {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -503,7 +514,8 @@ dd {
     border: 0;
   }
 
-  #comparison-table tbody tr {
+  #comparison-table tbody tr,
+  .motive-table tbody tr {
     margin-bottom: 0.85rem;
     overflow: hidden;
     border: 1px solid var(--line);
@@ -511,30 +523,35 @@ dd {
     background: var(--panel);
   }
 
-  #comparison-table tbody td {
+  #comparison-table tbody td,
+  .motive-table tbody td {
     padding: 0.7rem 0.8rem;
     border-bottom: 1px solid var(--line);
   }
 
-  #comparison-table tbody tr td:first-child {
+  #comparison-table tbody tr td:first-child,
+  .motive-table tbody tr td:first-child {
     background: var(--primary);
     color: #fff;
     font-weight: 700;
   }
 
-  #comparison-table tbody td:not(:first-child) {
+  #comparison-table tbody td:not(:first-child),
+  .motive-table tbody td:not(:first-child) {
     display: grid;
     grid-template-columns: minmax(6.5rem, 0.7fr) minmax(0, 1.3fr);
     gap: 0.65rem;
     overflow-wrap: anywhere;
   }
 
-  #comparison-table tbody td:not(:first-child)::before {
+  #comparison-table tbody td:not(:first-child)::before,
+  .motive-table tbody td:not(:first-child)::before {
     content: attr(data-label);
     font-weight: 700;
   }
 
-  #comparison-table tbody td:last-child {
+  #comparison-table tbody td:last-child,
+  .motive-table tbody td:last-child {
     border-bottom: 0;
   }
 }
@@ -942,9 +959,28 @@ footer {
   padding: 1.1rem 1.25rem;
 }
 
+.motive-subheading {
+  margin: 1.25rem 0 0.6rem;
+  color: var(--primary-strong);
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+}
+
 .motive-text p {
   max-width: 70ch;
   margin: 0 auto 1rem;
+}
+
+.motive-text .zitat p {
+  max-width: none;
+  margin: 0 0 0.75rem;
+  text-align: left;
+}
+
+.motive-text .zitat .quellen {
+  margin: 0;
+  font-style: normal;
+  text-align: right;
 }
 
 .video-details {
@@ -1003,6 +1039,17 @@ main > p,
   -webkit-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+}
+
+.motive-text > p {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+}
+
+.motive-text > p.quellen {
+  text-align: right;
 }
 
 .unfertig {
