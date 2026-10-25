@@ -388,7 +388,7 @@ if (quizResetButton) {
       try {
         result = JSON.parse(await response.text());
       } catch {
-        throw new Error('Fehler 701: Der Chatdienst ist gerade nicht erreichbar. Bitte versuche es später erneut.');
+        throw new Error('Der Chatdienst ist gerade nicht erreichbar. Bitte versuche es später erneut.');
       }
 
       if (!response.ok) {
