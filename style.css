@@ -400,6 +400,42 @@ a:focus-visible {
   text-align: left;
 }
 
+#einleitung .intro-outline {
+  margin-top: 0.75rem;
+}
+
+#einleitung .intro-outline summary {
+  color: var(--primary);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#einleitung .intro-outline nav {
+  margin-top: 0.5rem;
+}
+
+#einleitung .intro-outline ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#einleitung .intro-outline a {
+  text-decoration: none;
+}
+
+#einleitung .intro-outline a:hover {
+  text-decoration: underline;
+}
+
+#einleitung .intro-outline[open] {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+}
+
 .pane h3 {
   margin-bottom: 1rem;
 }

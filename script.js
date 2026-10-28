@@ -41,11 +41,6 @@ const timelineContent = {
     html: `
       <p>Das Sozialistengesetz von 1878 war ein Ausnahmegesetz, mit dem Bismarck die Sozialdemokratie bekämpfen wollte. Nach zwei gescheiterten Attentaten auf Kaiser Wilhelm I. im Jahr 1878 machte er die Sozialistische Arbeiterpartei dafür verantwortlich, obwohl es keine Beweise gab. Im Oktober 1878 beschloss der Reichstag das „Gesetz gegen die gemeingefährlichen Bestrebungen der Sozialdemokratie“. Es verbot sozialdemokratische Vereine, Versammlungen, Druckschriften und Gewerkschaften, und führende Mitglieder konnten aus ihren Wohnorten ausgewiesen werden. Nur die Teilnahme an Reichstagswahlen blieb erlaubt.</p>
       <p>Sein Ziel erreichte das Gesetz nicht: Die Partei arbeitete im Untergrund weiter, und die Verfolgung stärkte ihren Zusammenhalt, sodass sie bei Wahlen sogar dreimal so viele Stimmen gewann. Bismarck setzte deshalb zusätzlich auf „Zuckerbrot und Peitsche“. Neben der Unterdrückung (Peitsche) sollten die Sozialversicherungen (Zuckerbrot) die Arbeiter an den Staat binden und vom Sozialismus abbringen. Das Sozialistengesetz lief 1890 aus.</p>
-      <h4>Das Sozialistengesetz in Originalfassung:</h4>
-      <audio class="timeline-audio" controls preload="none" aria-label="Audiobeitrag zum Sozialistengesetz">
-        <source src="audios/Sozialistengesetz.mp3" type="audio/mpeg">
-        Dein Browser unterstützt die Audiowiedergabe nicht. <a href="audios/Sozialistengesetz.mp3">Audiobeitrag herunterladen</a>.
-      </audio>
     `
   },
   'jahr-1881': {
@@ -82,11 +77,8 @@ const timelineContent = {
   'jahr-1889': {
     title: '1889: Invaliditäts- und Altersversicherung',
     html: `
-      <div class="unfertig">
-        Dieser Abschnitt ist noch nicht fertig. Der Text muss noch geschrieben werden, nur kurzer Überblick wie im Beispiel, keine Erklärung der Funktionsweise
-      </div>
-      <p>Die Rentenversicherung war die größte und langfristigste Säule. Sie sicherte bei Invalidität oder im Alter eine Zahlung und sollte die Arbeiter vor Armut im Laufe des Lebens schützen.</p>
-    `
+      <p>Die gesetzliche Rentenversicherung wurde 1889 von Otto von Bismarck in Deutschland eingeführt. Es enthielt eine Invalidenrente im Falle einer Erwerbsunfähigkeit und eine Altersrente ab 70 (bei einer durchschnittlichen Lebenserwartung von etwa 40 Jahren ab Geburt), wobei die Beiträge 1,7 % des Lohns ausmachten und somit relativ niedrig waren. Die Beiträge wurden zu gleichen Teilen von Arbeitnehmern, Arbeitgebern und dem Staat bezahlt. Allerdings war die Rente sehr niedrig und reichte oft nicht aus, um alle Lebenshaltungskosten zu decken. Durch Kriege, Inflation und Währungsreformen verlor das angesparte Geld an Wert, wodurch der Aufbau eines ausreichenden Kapitalstocks erschwert wurde. </p>
+      `
   },
   'jahr-1890': {
     title: '1890: Ende einer Ära',
