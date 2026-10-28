@@ -70,20 +70,14 @@ const timelineContent = {
   'jahr-1883': {
     title: '1883: Krankenversicherung',
     html: `
-      <div class="unfertig">
-        Dieser Abschnitt ist noch nicht fertig. Der Text muss noch geschrieben werden, nur kurzer Überblick wie im Beispiel, keine Erklärung der Funktionsweise
-      </div>
-      <p>Mit der Krankenversicherung wurde 1883 die erste staatlich geregelte Sozialversicherung eingeführt. Sie deckte ärztliche Behandlung, Medikamente und ein zeitweises Krankengeld ab und stärkte die Bindung der Arbeiter an den Staat.</p>
-    `
+      <p>Als Otto von Bismarck 1883 die weltweit erste allgemeine Pflichtkrankenversicherung einführte, wurden erstmals in der Geschichte alle Arbeiter gegen Krankheiten versichert. Dadurch erhielten sie Anspruch auf bezahlten Krankenurlaub sowie uneingeschränkten Zugang zu Ärzten und medizinischer Versorgung. Ziel dieser Maßnahme war es, die Arbeiter im Krankheitsfall finanziell abzusichern und gleichzeitig ihre Bindung an den Staat zu stärken.</p>
+      `
   },
   'jahr-1884': {
     title: '1884: Unfallversicherung',
     html: `
-      <div class="unfertig">
-        Dieser Abschnitt ist noch nicht fertig. Der Text muss noch geschrieben werden, nur kurzer Überblick wie im Beispiel, keine Erklärung der Funktionsweise
-      </div>
-      <p>Die Unfallversicherung sollte Berufsunfälle und deren Folgen absichern. Arbeitgeber trugen die Organisation und die Finanzierung, während die Versicherung den Schutz für Beschäftigte und Familien im Krankheits- und Unfallfall deutlich ausbaute.</p>
-    `
+      <p>Als Otto von Bismarck 1884 die öffentlich-rechtliche Unfallversicherung einführte, wurden Arbeiter erstmals gegen die finanziellen Folgen von Arbeitsunfällen und Berufskrankheiten abgesichert. Unabhängig von der Verschuldungsfrage bot sie dem Betroffenen eine Entschädigung und sie erhielten dadurch Unterstützung, wenn sie bei der Arbeit verletzt wurden oder dauerhaft arbeitsunfähig waren. Ziel dieser Maßnahme war es, die Arbeiter vor den wirtschaftlichen Folgen von Arbeitsunfällen zu schützen, wobei die Kosten für die Versicherung allein nach Bismarcks Willen die Unternehmer und das Reich tragen. </p>
+      `
   },
   'jahr-1889': {
     title: '1889: Invaliditäts- und Altersversicherung',

@@ -97,6 +97,10 @@ section:first-of-type {
   border-top: 0;
 }
 
+#interaktive-zeitleiste {
+  border-top: 0;
+}
+
 a {
   color: var(--primary);
   transition: color 0.2s ease;
@@ -390,6 +394,10 @@ a:focus-visible {
 
 .pane[hidden] {
   display: none;
+}
+
+#einleitung p {
+  text-align: left;
 }
 
 .pane h3 {
@@ -788,7 +796,6 @@ footer {
   overflow: hidden;
   padding: 0;
   border: 1px solid var(--line);
-  border-top: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--panel);
   box-shadow: 0 18px 48px rgba(31, 42, 55, 0.22);
@@ -1020,11 +1027,7 @@ footer {
     margin-top: 0;
   }
 
-  .motive-grid {
-    grid-template-columns: 1fr;
-  }
   .motive-figure {
-    width: 100%;
     padding: 0.35rem;
   }
 }
