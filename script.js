@@ -85,12 +85,11 @@ const timelineContent = {
     html: `
       <div class="timeline-era-layout">
         <div class="timeline-era-text">
-          <div class="unfertig">
-            Dieser Abschnitt ist noch nicht fertig.  Der Text muss noch geschrieben werden.
+          <p>Das Sozialistengesetz, das seit 1878 sozialdemokratische Vereine, Versammlungen und Schriften verbot, lief im September 1890 aus, weil der Reichstag die Verlängerung ablehnte. Über diese Frage kam es zum Bruch zwischen Bismarck, der die Repression beibehalten wollte, und Wilhelm II., der die Arbeiter durch Entgegenkommen gewinnen wollte. Bismarck wurde im März 1890 entlassen.</p>
+          <p>Das Gesetz hatte sein Ziel verfehlt: Die SPD war im Untergrund und über Einzelkandidaten weiter aktiv geblieben und wuchs nach der Legalisierung rasch. 1912 wurde sie stärkste Fraktion im Reichstag. Die Sozialpolitik blieb bestehen und wurde ausgebaut, etwa durch Arbeitsschutzgesetze und 1911 die Reichsversicherungsordnung. Sie war nun ein fester Bestandteil des modernen Staates.</p>
+          <p style="margin-top: 3em;">Etwas mehr Infos zur Karikatur: „Dropping the Pilot“ – Weltbekannte Karikatur von Jehn Tenniel im englischen Satiremagazins „Punch“ vom 29.03.1890 zur Entlassung Bismarcksam 20.03.1890</p></p>
+
           </div>
-          <p>Das Sozialistengesetz lief aus, und Bismarck verlor im politischen System schnell an Einfluss. Die Sozialpolitik blieb aber bestehen und war nun ein fester Bestandteil des modernen Staates.</p>
-          <p>Weiterer historischer Kontext, wer übernahm die Macht, was ist mit den Sozialismus, ging die Sozialpolitik weiter oder wurde sie vernachlässigt?</p>
-        </div>
         <figure class="timeline-era-figure">
           <div class="timeline-era-artwork">
             <h4>Karikatur: Der Lotse geht von Bord (1890)</h4>
