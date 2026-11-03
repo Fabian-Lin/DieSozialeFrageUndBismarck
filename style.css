@@ -311,13 +311,6 @@ a:focus-visible {
   color: var(--muted);
 }
 
-.timeline-explanation .timeline-audio {
-  display: block;
-  width: 100%;
-  max-width: 38rem;
-  margin-top: 1rem;
-}
-
 .timeline-era-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 24.75rem);
@@ -328,6 +321,10 @@ a:focus-visible {
 .timeline-era-text p:last-child,
 .timeline-era-artwork h4 {
   margin-bottom: 0.5rem;
+}
+
+.timeline-artwork-note {
+  margin-top: 1rem;
 }
 
 .timeline-era-artwork {
@@ -585,8 +582,7 @@ dd {
   display: none !important;
 }
 
-#comparison-table,
-.motive-table {
+#comparison-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
@@ -597,48 +593,38 @@ dd {
 }
 
 #comparison-table th,
-#comparison-table td,
-.motive-table th,
-.motive-table td {
+#comparison-table td {
   padding: 0.85rem 0.9rem;
   border-bottom: 1px solid var(--line);
   text-align: left;
   vertical-align: top;
 }
 
-#comparison-table thead th,
-.motive-table thead th {
+#comparison-table thead th {
   background: var(--primary);
   color: #fff;
   font-weight: 700;
 }
 
-#comparison-table tbody tr:nth-child(even) td,
-.motive-table tbody tr:nth-child(even) td {
+#comparison-table tbody tr:nth-child(even) td {
   background: var(--bg-soft);
 }
 
 @media (max-width: 600px) {
   #comparison-table,
-  .motive-table,
   #comparison-table tbody,
-  .motive-table tbody,
   #comparison-table tr,
-  .motive-table tr,
-  #comparison-table td,
-  .motive-table td {
+  #comparison-table td {
     display: block;
     width: 100%;
   }
 
-  #comparison-table,
-  .motive-table {
+  #comparison-table {
     border: 0;
     background: transparent;
   }
 
-  #comparison-table thead,
-  .motive-table thead {
+  #comparison-table thead {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -650,8 +636,7 @@ dd {
     border: 0;
   }
 
-  #comparison-table tbody tr,
-  .motive-table tbody tr {
+  #comparison-table tbody tr {
     margin-bottom: 0.85rem;
     overflow: hidden;
     border: 1px solid var(--line);
@@ -659,35 +644,30 @@ dd {
     background: var(--panel);
   }
 
-  #comparison-table tbody td,
-  .motive-table tbody td {
+  #comparison-table tbody td {
     padding: 0.7rem 0.8rem;
     border-bottom: 1px solid var(--line);
   }
 
-  #comparison-table tbody tr td:first-child,
-  .motive-table tbody tr td:first-child {
+  #comparison-table tbody tr td:first-child {
     background: var(--primary);
     color: #fff;
     font-weight: 700;
   }
 
-  #comparison-table tbody td:not(:first-child),
-  .motive-table tbody td:not(:first-child) {
+  #comparison-table tbody td:not(:first-child) {
     display: grid;
     grid-template-columns: minmax(6.5rem, 0.7fr) minmax(0, 1.3fr);
     gap: 0.65rem;
     overflow-wrap: anywhere;
   }
 
-  #comparison-table tbody td:not(:first-child)::before,
-  .motive-table tbody td:not(:first-child)::before {
+  #comparison-table tbody td:not(:first-child)::before {
     content: attr(data-label);
     font-weight: 700;
   }
 
-  #comparison-table tbody td:last-child,
-  .motive-table tbody td:last-child {
+  #comparison-table tbody td:last-child {
     border-bottom: 0;
   }
 }
@@ -829,6 +809,15 @@ footer {
   padding-bottom: 3rem;
   color: var(--muted);
   font-size: 0.95rem;
+}
+
+.footer-heading {
+  font-size: 1.3rem;
+}
+
+.footer-contact {
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
 }
 
 @media (max-width: 720px) {
@@ -1188,8 +1177,16 @@ main > p,
   text-align: right;
 }
 
-.unfertig {
-    background-color: #ff0000; /* Reine rote Farbe */
-    color: #ffffff; /* Weißer Text für besseren Kontrast */
-    padding: 0.5rem; /* Optional: Innenabstand für bessere Sichtbarkeit */
+@media (max-width: 600px) {
+  .motive-text p,
+  .pane p,
+  main > p,
+  .lead {
+    text-align: left;
+    text-justify: auto;
+  }
+
+  .pane p.quellen {
+    text-align: right;
+  }
 }

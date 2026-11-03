@@ -135,7 +135,7 @@ export async function onRequest({ request, env }) {
       body: JSON.stringify({
         prompt: {
           id: env.OPENAI_PROMPT_ID || 'pmpt_6ad8cd2a9ec08190b9394d27aa9a1e0606439f58c2ab47b7',
-          version: env.OPENAI_PROMPT_VERSION || '1'
+          version: env.OPENAI_PROMPT_VERSION || '2'
         },
         input: body.messages.map(message => ({
           role: message.role,
