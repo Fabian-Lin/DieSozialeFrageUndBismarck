@@ -65,7 +65,7 @@ const timelineContent = {
   'jahr-1883': {
     title: '1883: Krankenversicherung',
     html: `
-      <p>Als Otto von Bismarck 1883 die weltweit erste allgemeine Pflichtkrankenversicherung einführte, wurden erstmals in der Geschichte alle Arbeiter gegen Krankheiten versichert. Dadurch erhielten sie Anspruch auf bezahlten Krankenurlaub sowie uneingeschränkten Zugang zu Ärzten und medizinischer Versorgung. Ziel dieser Maßnahme war es, die Arbeiter im Krankheitsfall finanziell abzusichern und gleichzeitig ihre Bindung an den Staat zu stärken.</p>
+      <p>Als Otto von Bismarck 1883 die weltweit erste allgemeine Pflichtkrankenversicherung einführte, wurden erstmals in der Geschichte Arbeiter gegen Krankheiten versichert. Dadurch erhielten sie Anspruch auf bezahlten Krankenurlaub sowie uneingeschränkten Zugang zu Ärzten und medizinischer Versorgung. Ziel dieser Maßnahme war es, die Arbeiter im Krankheitsfall finanziell abzusichern und gleichzeitig ihre Bindung an den Staat zu stärken.</p>
       `
   },
   'jahr-1884': {

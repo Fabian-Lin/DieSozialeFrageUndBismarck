@@ -138,8 +138,31 @@ a:focus-visible {
 }
 
 .lead {
-  font-size: 1.18rem;
-  color: var(--muted);
+  display: grid;
+  gap: 0.25rem;
+  max-width: 42rem;
+  margin: 1.25rem 0 0;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.lead-label {
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lead-question {
+  color: var(--ink);
+  font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: left;
 }
 
 .hero-bild {
@@ -487,6 +510,75 @@ dd {
   /* Use the same max-width as the main container for a uniform layout */
   max-width: var(--max-width);
   margin: 0 auto;
+}
+
+.discussion-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.discussion-card {
+  padding: 1.1rem 1.25rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--primary);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.discussion-card--positive {
+  border-top-color: var(--success);
+}
+
+.discussion-card--negative {
+  border-top-color: #b66a36;
+}
+
+.discussion-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+.discussion-marker {
+  display: inline-grid;
+  flex: 0 0 1.8rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(45, 125, 74, 0.1);
+  color: var(--success);
+  font: 700 1.2rem/1 var(--font-body);
+}
+
+.discussion-card--negative .discussion-marker {
+  background: rgba(182, 106, 54, 0.12);
+  color: #9a4f24;
+}
+
+.discussion-card ul {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.discussion-card li {
+  padding-left: 0.15rem;
+}
+
+.discussion-sources-heading {
+  margin: 1.5rem 0 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .discussion-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .hidden {
@@ -1018,6 +1110,11 @@ footer {
   max-width: none;
   margin: 0 0 0.75rem;
   text-align: left;
+}
+
+.motive-text .video-details > p {
+  max-width: none;
+  margin: 0;
 }
 
 .motive-text .zitat .quellen {
